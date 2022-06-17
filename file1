@@ -26,12 +26,4 @@ int main()
    int selectCountry; //user to choose a country to trade listings of
    std::cin>>selectCountry;
 }
-									    //user to select whether to buy or sell stocks
-									    //user to be able to switch countries within trades
-									    //maximum number of trades to be 10
-									    //user to have option of viewing the best trades or continue with their speculation
-									    //best trades to be calculated by number of trades user has entered
-									    //don't ask user trades they'll enter, create a counter to solve for that
-					
-
-c
+									   
