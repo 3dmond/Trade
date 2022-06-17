@@ -1,0 +1,37 @@
+
+
+#include <iostream>
+#include <iomanip>
+
+
+int main()
+{
+    //user details for log in.
+   std::cout<<"Welcome. Please fill in the details below to complete sign in: "<<std::endl;
+   std::string firstName, lastName;
+   std::cout<<"First name: ";std::cin>>firstName;std::cout<<std::flush<<std::endl;
+   std::cout<<"Last name: ";std::cin>>lastName;std::cout<<std::flush<<std::endl;
+   std::cout<<"Welcome "<<firstName<<" "<<lastName<<std::flush<<std::endl;
+   std::cout<<"Please select an option below: "<<std::flush<<std::endl<<"1. Trade stocks."<<std::flush<<std::endl<<"2. Trade with leverage."<<std::flush<<std::endl;
+   int selectOption; //user to choose between either option one or two
+   std::cin>>selectOption;
+   std::cout<<"Select a country to trade on its listings. For international listings, press 0"<<std::endl;
+   std::cout<<"1. Kenya"<<std::endl;
+   std::cout<<"2. China"<<std::endl;
+   std::cout<<"3. Germany"<<std::endl;
+   std::cout<<"4. USA"<<std::endl;
+   std::cout<<"5. Australia"<<std::endl;
+   std::cout<<"6. Brazil"<<std::endl;
+   std::cout<<"7. UAE"<<std::endl;
+   int selectCountry; //user to choose a country to trade listings of
+   std::cin>>selectCountry;
+}
+									    //user to select whether to buy or sell stocks
+									    //user to be able to switch countries within trades
+									    //maximum number of trades to be 10
+									    //user to have option of viewing the best trades or continue with their speculation
+									    //best trades to be calculated by number of trades user has entered
+									    //don't ask user trades they'll enter, create a counter to solve for that
+					
+
+c
