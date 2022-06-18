@@ -4,26 +4,51 @@
 #include <iomanip>
 
 
+void userDetails();
+
+
 int main()
 {
     //user details for log in.
-   std::cout<<"Welcome. Please fill in the details below to complete sign in: "<<std::endl;
-   std::string firstName, lastName;
-   std::cout<<"First name: ";std::cin>>firstName;std::cout<<std::flush<<std::endl;
-   std::cout<<"Last name: ";std::cin>>lastName;std::cout<<std::flush<<std::endl;
-   std::cout<<"Welcome "<<firstName<<" "<<lastName<<std::flush<<std::endl;
-   std::cout<<"Please select an option below: "<<std::flush<<std::endl<<"1. Trade stocks."<<std::flush<<std::endl<<"2. Trade with leverage."<<std::flush<<std::endl;
-   int selectOption; //user to choose between either option one or two
-   std::cin>>selectOption;
-   std::cout<<"Select a country to trade on its listings. For international listings, press 0"<<std::endl;
-   std::cout<<"1. Kenya"<<std::endl;
-   std::cout<<"2. China"<<std::endl;
-   std::cout<<"3. Germany"<<std::endl;
-   std::cout<<"4. USA"<<std::endl;
-   std::cout<<"5. Australia"<<std::endl;
-   std::cout<<"6. Brazil"<<std::endl;
-   std::cout<<"7. UAE"<<std::endl;
-   int selectCountry; //user to choose a country to trade listings of
-   std::cin>>selectCountry;
+    userDetails();
+    std::cout<<"Please select an option below: "<<std::flush<<std::endl<<"1. Trade stocks."<<std::flush<<std::endl<<"2. Trade with leverage."<<std::flush<<std::endl;
+    int selectOption; //user to choose between either option one or two
+    std::cin>>selectOption;
+    std::cout<<"Select a country to trade on its listings. For international listings, press 0"<<std::endl;
+    std::cout<<"1. Kenya"<<std::endl;
+    std::cout<<"2. China"<<std::endl;
+    std::cout<<"3. Germany"<<std::endl;
+    std::cout<<"4. USA"<<std::endl;
+    std::cout<<"5. Australia"<<std::endl;
+    std::cout<<"6. Brazil"<<std::endl;
+    std::cout<<"7. UAE"<<std::endl;
+    int selectCountry; //user to choose a country to trade listings of
+    std::cin>>selectCountry;
 }
-									   
+void userDetails()
+{
+    std::cout<<"Welcome. Please fill in the details below to complete sign in: "<<std::endl;
+    std::string firstName, lastName;
+    std::cout<<"First name: ";std::cin>>firstName;std::cout<<std::flush<<std::endl;
+    std::cout<<"Last name: ";std::cin>>lastName;std::cout<<std::flush<<std::endl;
+    std::cout<<"Welcome "<<firstName<<" "<<lastName<<std::flush<<std::endl;
+    std::cout<<"Create a password: ";
+    std::string password;
+    std::cin>>password;
+    std::cout<<std::endl<<"Confirm password below: "<<std::endl;
+    std::string aesterick{'*'};
+    std::cout<<std::setfill('*');
+    std::cout<<std::setw(10)<<std::left<<aesterick<<std::endl;
+    std::string passwordConfirm;
+    std::cin>>passwordConfirm;
+    while (password != passwordConfirm)
+    {
+       std::cout<<"Passwords do not match!! Try again"<<std::endl;
+       std::cin>>passwordConfirm;
+    }
+    std::cout<<std::endl<<"  Password modified successfully!"<<std::endl<<std::endl;
+
+}
+
+
+
