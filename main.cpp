@@ -14,14 +14,20 @@ void brazilListings ();
 void uaeListings ();
 
 
+
 int main()
 {
     //user details for log in.
-    userDetails();
+   // userDetails();
     std::cout<<"Please select an option below: "<<std::flush<<std::endl<<"1. Trade stocks."<<std::flush<<std::endl<<"2. Trade with leverage."<<std::flush<<std::endl;
     int selectOption; //user to choose between either option one or two
     std::cin>>selectOption;
-    std::cout<<"Select a country to trade on its listings. For international listings, press 0"<<std::endl;
+    while (selectOption > 2 || selectOption == 0) {
+        std::cout<<"Invalid option, please select an option below:"<<std::endl;
+        std::cout<<"1. Trade stocks."<<std::flush<<std::endl<<"2. Trade with leverage."<<std::flush<<std::endl;
+        std::cin>>selectOption;
+    }
+    std::cout<<"Select a country to trade on its listings."<<std::endl;
     std::cout<<"1. Kenya"<<std::endl;
     std::cout<<"2. China"<<std::endl;
     std::cout<<"3. Germany"<<std::endl;
@@ -31,6 +37,34 @@ int main()
     std::cout<<"7. UAE"<<std::endl;
     int selectCountry; //user to choose a country to trade listings of
     std::cin>>selectCountry;
+    if (selectCountry == 1){ std::cout<<"KENYA:"<<std::endl;
+        kenyaListings();}else if (selectCountry == 2){ std::cout<<"CHINA:"<<std::endl;
+    chinaListings();}else if (selectCountry == 3){ std::cout<<"GERMANY:"<<std::endl;
+    germanyListings();}else if (selectCountry == 4){ std::cout<<"USA:"<<std::endl;
+    usaListings();}else if (selectCountry == 5){ std::cout<<"AUSTRALIA:"<<std::endl;
+    australiaListings();}else if (selectCountry == 6){ std::cout<<"BRAZIL:"<<std::endl;
+    brazilListings();}else if (selectCountry == 7){ std::cout<<"UAE:"<<std::endl;
+    uaeListings();}
+    while (selectCountry > 7 || selectCountry == 0){
+        std::cout<<"Invalid option, please try again!"<<std::endl;
+        std::cout<<"Select a country to trade on its listings."<<std::endl;
+        std::cout<<"1. Kenya"<<std::endl;
+        std::cout<<"2. China"<<std::endl;
+        std::cout<<"3. Germany"<<std::endl;
+        std::cout<<"4. USA"<<std::endl;
+        std::cout<<"5. Australia"<<std::endl;
+        std::cout<<"6. Brazil"<<std::endl;
+        std::cout<<"7. UAE"<<std::endl;
+        std::cin>>selectCountry;
+        if (selectCountry == 1){ std::cout<<"KENYA:"<<std::endl;
+        kenyaListings();}else if (selectCountry == 2){ std::cout<<"CHINA:"<<std::endl;
+    chinaListings();}else if (selectCountry == 3){ std::cout<<"GERMANY:"<<std::endl;
+    germanyListings();}else if (selectCountry == 4){ std::cout<<"USA:"<<std::endl;
+    usaListings();}else if (selectCountry == 5){ std::cout<<"AUSTRALIA:"<<std::endl;
+    australiaListings();}else if (selectCountry == 6){ std::cout<<"BRAZIL:"<<std::endl;
+    brazilListings();}else if (selectCountry == 7){ std::cout<<"UAE:"<<std::endl;
+    uaeListings();}
+    }
 }
 void userDetails()
 {
