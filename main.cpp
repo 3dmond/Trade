@@ -15,15 +15,16 @@ void uaeListings ();
 void wrongCountrySelection();
 
 
+int selectCountry; //user to choose a country to trade listings of
+
 
 int main()
 {
-    //user details for log in.
-   // userDetails();
-    std::cout<<"Please select an option below: "<<std::flush<<std::endl<<"1. Trade stocks."<<std::flush<<std::endl<<"2. Trade with leverage."<<std::flush<<std::endl;
+    //userDetails();   //user details for log in
+  /*  std::cout<<"Please select an option below: "<<std::flush<<std::endl<<"1. Trade stocks."<<std::flush<<std::endl<<"2. Trade with leverage."<<std::flush<<std::endl;
     int selectOption; //user to choose between either option one or two
     std::cin>>selectOption;
-    while (selectOption > 2 || selectOption == 0) {
+    while (selectOption > 2){
         std::cout<<"Invalid option, please select an option below:"<<std::endl;
         std::cout<<"1. Trade stocks."<<std::flush<<std::endl<<"2. Trade with leverage."<<std::flush<<std::endl;
         std::cin>>selectOption;
@@ -36,7 +37,6 @@ int main()
     std::cout<<"5. Australia"<<std::endl;
     std::cout<<"6. Brazil"<<std::endl;
     std::cout<<"7. UAE"<<std::endl;
-    int selectCountry; //user to choose a country to trade listings of
     std::cin>>selectCountry;
     if (selectCountry == 1){ std::cout<<"KENYA:"<<std::endl;
         kenyaListings();}else if (selectCountry == 2){ std::cout<<"CHINA:"<<std::endl;
@@ -47,6 +47,72 @@ int main()
     brazilListings();}else if (selectCountry == 7){ std::cout<<"UAE:"<<std::endl;
     uaeListings();}
     wrongCountrySelection();
+
+    */
+
+    std::cout<<"Select the currency you would like to use for your transactions."<<std::endl;
+    std::cout<<"The conversion rates are as shown:"<<std::endl;
+    std::string conversionRates [8][8] = {
+    {
+      "   ","KSH       "," CHY   "," EUR   ","USD    "," AUD   ","BRL    ","AED"
+    },
+    {
+      "KSH", "1.00     ","0.057  ","0.008  ","0.008  ","0.0123 ","0.0446 ","0.0312"
+    },
+    {
+      "CHY", "17.55    ","1.00   ","0.1418 ","0.1493 ","0.2164 ","0.7821 ","0.5481",
+    },
+    {
+      "EUR", "123.786  ","7.0522 ","1.00   ","1.0526 ","1.526  ","5.5158 ","3.8658"
+    },
+    {
+      "USD", "117.597  ","6.70   ","0.95   ","1.00   ","1.45   ","5.24   ","3.6725"
+    },
+    {
+      "AUD", "81.3     ","4.6207 ","0.6552 ","0.6897 ","1.00   ","3.6138 ","2.5328"
+    },
+    {
+      "BRL", "22.4422  ","1.2786 ","0.1813 ","0.1908 ","0.2767 ","1.00   ","0.7009"
+    },
+    {
+      "AED", "32.021   ","1.8244 ","0.2587 ","0.2722 ","0.3947 ","1.4267 ","1.00"
+    }
+    };
+    for (int i = 0; i < 8; i++){
+        for (int k = 0; k < 8; k++)
+        {
+            std::cout<<conversionRates[i][k]<<" "<<std::flush;
+        }
+        std::cout<<std::endl;
+    }
+    int currencySelection;
+    std::cout<<"1. Kenyan Shilling (KSH)"<<std::endl;
+    std::cout<<"2. Chinese Yuan (CHY)"<<std::endl;
+    std::cout<<"3. Euro (EUR)"<<std::endl;
+    std::cout<<"4. American Dollar (USD)"<<std::endl;
+    std::cout<<"5. Australian Dollar (AUD)"<<std::endl;
+    std::cout<<"6. Brazilian Real (BRL)"<<std::endl;
+    std::cout<<"7. Emirati Dinar (AED)"<<std::endl;
+
+   /*
+    std::cout<<"Your balance is 0.00. \n Press 1 to make a deposit:"<<std::endl;
+    int depositOption;
+    std::cin>>depositOption;
+    while (depositOption != 1)
+    {
+        std::cout<<"Invalid option. Press 1 to make a deposit."<<std::endl;
+        std::cin>>depositOption;
+    }
+    std::cout<<"Enter deposit amount: "<<std::flush;
+    unsigned int depositAmount;
+    std::cin>>depositAmount;
+    while (depositAmount <= 1)
+    {
+        std::cout<<"Invalid option. Deposit amount should be greater than 1"<<std::endl; //remember to include transaction fee factored on selected currency of use
+        std::cout<<"Enter deposit amount: "<<std::flush;
+        std::cin>>depositAmount;
+    }
+    */
 }
 void userDetails()
 {
@@ -228,7 +294,6 @@ void uaeListings ()
 }
 void wrongCountrySelection()
 {
-        int selectCountry; //user to choose a country to trade listings of
         while (selectCountry > 7 || selectCountry == 0){
         std::cout<<"Invalid option, please try again!"<<std::endl;
         std::cout<<"Select a country to trade on its listings."<<std::endl;
