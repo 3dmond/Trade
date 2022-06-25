@@ -10,18 +10,7 @@
 #include <iostream>
 #include <iomanip>
 
-
-void userDetails();
-void kenyaListings ();
-void chinaListings ();
-void germanyListings ();
-void usaListings ();
-void australiaListings ();
-void brazilListings ();
-void uaeListings ();
-void wrongCountrySelection();
-void stockSelection (int stockId);
-
+#include "headers.h"
 
 
 const double RATE = (0.05 / 100); //transactional rates of all transactions
@@ -119,9 +108,9 @@ int main()
     std::cout<<"Enter deposit amount: "<<std::flush;
     double depositAmount;
     std::cin>>depositAmount;
-    while (depositAmount <= 1)
+    while (depositAmount <= 10000)
     {
-        std::cout<<"Invalid option. Deposit amount should be greater than 1"<<std::endl; //remember to include transaction fee factored on selected currency of use
+        std::cout<<"Invalid option. Deposit amount should be greater than 10000"<<std::endl; //remember to include transaction fee factored on selected currency of use
         std::cout<<"Enter deposit amount: "<<std::flush;
         std::cin>>depositAmount;
     }
@@ -158,18 +147,17 @@ int main()
     std::cin>>selectCountry;
     sleep (3);
     if (selectCountry == 1){ std::cout<<"KENYA:"<<std::endl;
-        kenyaListings();}else if (selectCountry == 2){ std::cout<<"CHINA:"<<std::endl;
-    chinaListings();}else if (selectCountry == 3){ std::cout<<"GERMANY:"<<std::endl;
-    germanyListings();}else if (selectCountry == 4){ std::cout<<"USA:"<<std::endl;
-    usaListings();}else if (selectCountry == 5){ std::cout<<"AUSTRALIA:"<<std::endl;
-    australiaListings();}else if (selectCountry == 6){ std::cout<<"BRAZIL:"<<std::endl;
-    brazilListings();}else if (selectCountry == 7){ std::cout<<"UAE:"<<std::endl;
-    uaeListings();}
+    kenyaListingsKSH();}else if (selectCountry == 2){ std::cout<<"CHINA:"<<std::endl;
+    chinaListingsKSH();}else if (selectCountry == 3){ std::cout<<"GERMANY:"<<std::endl;
+    germanyListingsKSH();}else if (selectCountry == 4){ std::cout<<"USA:"<<std::endl;
+    usaListingsKSH();}else if (selectCountry == 5){ std::cout<<"AUSTRALIA:"<<std::endl;
+    australiaListingsKSH();}else if (selectCountry == 6){ std::cout<<"BRAZIL:"<<std::endl;
+    brazilListingsKSH();}else if (selectCountry == 7){ std::cout<<"UAE:"<<std::endl;
+    uaeListingsKSH();}
     wrongCountrySelection();
     */
 
     std::cout<<"Enter stock ID: "<<std::flush;std::cin>>stockId;std::cout<<std::endl;
-    stockSelection (stockId);
 
 }
 void userDetails()
@@ -203,7 +191,7 @@ void userDetails()
     std::cout<<std::endl<<"  Password modified successfully!"<<std::endl<<std::endl;
 
 }
-void kenyaListings ()
+void kenyaListingsKSH ()
 {
     std::string listings[11][4] = {
         {"ID    ", "PLCs                                   "," CP  ","PP" },
@@ -226,7 +214,7 @@ void kenyaListings ()
     }
     sleep(5);
 }
-void chinaListings ()
+void chinaListingsKSH ()
 {
         std::string listings[11][4] = {
         {"ID    ", "PLCs            "," CP    ","PP" },
@@ -248,7 +236,7 @@ void chinaListings ()
         std::cout<<std::endl;
     }
 }
-void germanyListings ()
+void germanyListingsKSH ()
 {
         std::string listings[11][4] = {
         {"ID    ", "PLCs                          ","  CP    ","PP" },
@@ -270,7 +258,7 @@ void germanyListings ()
         std::cout<<std::endl;
     }
 }
-void usaListings ()
+void usaListingsKSH ()
 {
         std::string listings[11][4] = {
         {"ID    ", "PLCs               ","  CP    ","PP" },
@@ -292,7 +280,7 @@ void usaListings ()
         std::cout<<std::endl;
     }
 }
-void australiaListings ()
+void australiaListingsKSH ()
 {
         std::string listings[11][4] = {
         {"ID    ", "PLCs                                 "," CP    ","PP" },
@@ -314,7 +302,7 @@ void australiaListings ()
         std::cout<<std::endl;
     }
 }
-void brazilListings ()
+void brazilListingsKSH ()
 {
         std::string listings[11][4] = {
         {"ID    ", "PLCs                                     "," CP    ","PP" },
@@ -336,7 +324,7 @@ void brazilListings ()
         std::cout<<std::endl;
     }
 }
-void uaeListings ()
+void uaeListingsKSH ()
 {
         std::string listings[11][4] = {
         {"ID    ", "PLCs                        "," CP    ","PP" },
@@ -372,218 +360,12 @@ void wrongCountrySelection()
         std::cout<<"7. UAE"<<std::endl;
         std::cin>>selectCountry;
         if (selectCountry == 1){ std::cout<<"KENYA:"<<std::endl;
-        kenyaListings();}else if (selectCountry == 2){ std::cout<<"CHINA:"<<std::endl;
-    chinaListings();}else if (selectCountry == 3){ std::cout<<"GERMANY:"<<std::endl;
-    germanyListings();}else if (selectCountry == 4){ std::cout<<"USA:"<<std::endl;
-    usaListings();}else if (selectCountry == 5){ std::cout<<"AUSTRALIA:"<<std::endl;
-    australiaListings();}else if (selectCountry == 6){ std::cout<<"BRAZIL:"<<std::endl;
-    brazilListings();}else if (selectCountry == 7){ std::cout<<"UAE:"<<std::endl;
-    uaeListings();}
-    }
-}
-void stockSelection (int stockId)
-{
-    switch (stockId)
-    {
-    case 3069:
-        {
-
-        std::string stockSelected [2][4] = {
-        {
-            "       ","       CP","   PP","    %"
-        },
-        {
-            "Safaricom PLC","44.29","44.16","0.294"
-        }
-        };
-        for (int i = 0; i < 2; i++){
-            for (int k = 0; k < 4; k++)
-            {
-                std::cout<<stockSelected [i][k]<<" "<<std::flush;
-            }
-            std::cout<<std::endl;
-        }
-        break;
-    }
-    case 3079:
-        {
-
-        std::string stockSelected [2][4] = {
-        {
-            "       ","       CP","   PP","    %"
-        },
-        {
-            "Safaricom PLC","44.29","44.16","0.294"
-        }
-        };
-        for (int i = 0; i < 2; i++){
-            for (int k = 0; k < 4; k++)
-            {
-                std::cout<<stockSelected [i][k]<<" "<<std::flush;
-            }
-            std::cout<<std::endl;
-        }
-        break;
-    }
-    case 3089:
-        {
-
-        std::string stockSelected [2][4] = {
-        {
-            "       ","       CP","   PP","    %"
-        },
-        {
-            "Safaricom PLC","44.29","44.16","0.294"
-        }
-        };
-        for (int i = 0; i < 2; i++){
-            for (int k = 0; k < 4; k++)
-            {
-                std::cout<<stockSelected [i][k]<<" "<<std::flush;
-            }
-            std::cout<<std::endl;
-        }
-        break;
-    }
-    case 3099:
-        {
-
-        std::string stockSelected [2][4] = {
-        {
-            "       ","       CP","   PP","    %"
-        },
-        {
-            "Safaricom PLC","44.29","44.16","0.294"
-        }
-        };
-        for (int i = 0; i < 2; i++){
-            for (int k = 0; k < 4; k++)
-            {
-                std::cout<<stockSelected [i][k]<<" "<<std::flush;
-            }
-            std::cout<<std::endl;
-        }
-        break;
-    }
-    case 3009:
-        {
-
-        std::string stockSelected [2][4] = {
-        {
-            "       ","       CP","   PP","    %"
-        },
-        {
-            "Safaricom PLC","44.29","44.16","0.294"
-        }
-        };
-        for (int i = 0; i < 2; i++){
-            for (int k = 0; k < 4; k++)
-            {
-                std::cout<<stockSelected [i][k]<<" "<<std::flush;
-            }
-            std::cout<<std::endl;
-        }
-        break;
-    }
-    case 3019:
-        {
-
-        std::string stockSelected [2][4] = {
-        {
-            "       ","       CP","   PP","    %"
-        },
-        {
-            "Safaricom PLC","44.29","44.16","0.294"
-        }
-        };
-        for (int i = 0; i < 2; i++){
-            for (int k = 0; k < 4; k++)
-            {
-                std::cout<<stockSelected [i][k]<<" "<<std::flush;
-            }
-            std::cout<<std::endl;
-        }
-        break;
-    }
-    case 3029:
-        {
-
-        std::string stockSelected [2][4] = {
-        {
-            "       ","       CP","   PP","    %"
-        },
-        {
-            "Safaricom PLC","44.29","44.16","0.294"
-        }
-        };
-        for (int i = 0; i < 2; i++){
-            for (int k = 0; k < 4; k++)
-            {
-                std::cout<<stockSelected [i][k]<<" "<<std::flush;
-            }
-            std::cout<<std::endl;
-        }
-        break;
-    }
-    case 3039:
-        {
-
-        std::string stockSelected [2][4] = {
-        {
-            "       ","       CP","   PP","    %"
-        },
-        {
-            "Safaricom PLC","44.29","44.16","0.294"
-        }
-        };
-        for (int i = 0; i < 2; i++){
-            for (int k = 0; k < 4; k++)
-            {
-                std::cout<<stockSelected [i][k]<<" "<<std::flush;
-            }
-            std::cout<<std::endl;
-        }
-        break;
-    }
-    case 3049:
-        {
-
-        std::string stockSelected [2][4] = {
-        {
-            "       ","       CP","   PP","    %"
-        },
-        {
-            "Safaricom PLC","44.29","44.16","0.294"
-        }
-        };
-        for (int i = 0; i < 2; i++){
-            for (int k = 0; k < 4; k++)
-            {
-                std::cout<<stockSelected [i][k]<<" "<<std::flush;
-            }
-            std::cout<<std::endl;
-        }
-        break;
-    }
-    case 3059:
-        {
-
-        std::string stockSelected [2][4] = {
-        {
-            "       ","       CP","   PP","    %"
-        },
-        {
-            "Safaricom PLC","44.29","44.16","0.294"
-        }
-        };
-        for (int i = 0; i < 2; i++){
-            for (int k = 0; k < 4; k++)
-            {
-                std::cout<<stockSelected [i][k]<<" "<<std::flush;
-            }
-            std::cout<<std::endl;
-        }
-        break;
-    }
+        kenyaListingsKSH();}else if (selectCountry == 2){ std::cout<<"CHINA:"<<std::endl;
+    chinaListingsKSH();}else if (selectCountry == 3){ std::cout<<"GERMANY:"<<std::endl;
+    germanyListingsKSH();}else if (selectCountry == 4){ std::cout<<"USA:"<<std::endl;
+    usaListingsKSH();}else if (selectCountry == 5){ std::cout<<"AUSTRALIA:"<<std::endl;
+    australiaListingsKSH();}else if (selectCountry == 6){ std::cout<<"BRAZIL:"<<std::endl;
+    brazilListingsKSH();}else if (selectCountry == 7){ std::cout<<"UAE:"<<std::endl;
+    uaeListingsKSH();}
     }
 }
