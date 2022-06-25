@@ -1,5 +1,12 @@
 
 
+#ifdef _win64
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif // _win64
+
+
 #include <iostream>
 #include <iomanip>
 
@@ -16,12 +23,14 @@ void wrongCountrySelection();
 
 
 int selectCountry; //user to choose a country to trade listings of
+const double RATE = (0.05 / 100); //transactional rates of all transactions
+const double TAX = (16 / 100); //standard tax rate
 
 
 int main()
 {
-    //userDetails();   //user details for log in
-  /*  std::cout<<"Please select an option below: "<<std::flush<<std::endl<<"1. Trade stocks."<<std::flush<<std::endl<<"2. Trade with leverage."<<std::flush<<std::endl;
+    userDetails();   //user details for log in
+    std::cout<<"Please select an option below: "<<std::flush<<std::endl<<"1. Trade stocks."<<std::flush<<std::endl<<"2. Trade with leverage."<<std::flush<<std::endl;
     int selectOption; //user to choose between either option one or two
     std::cin>>selectOption;
     while (selectOption > 2){
@@ -29,29 +38,11 @@ int main()
         std::cout<<"1. Trade stocks."<<std::flush<<std::endl<<"2. Trade with leverage."<<std::flush<<std::endl;
         std::cin>>selectOption;
     }
-    std::cout<<"Select a country to trade on its listings."<<std::endl;
-    std::cout<<"1. Kenya"<<std::endl;
-    std::cout<<"2. China"<<std::endl;
-    std::cout<<"3. Germany"<<std::endl;
-    std::cout<<"4. USA"<<std::endl;
-    std::cout<<"5. Australia"<<std::endl;
-    std::cout<<"6. Brazil"<<std::endl;
-    std::cout<<"7. UAE"<<std::endl;
-    std::cin>>selectCountry;
-    if (selectCountry == 1){ std::cout<<"KENYA:"<<std::endl;
-        kenyaListings();}else if (selectCountry == 2){ std::cout<<"CHINA:"<<std::endl;
-    chinaListings();}else if (selectCountry == 3){ std::cout<<"GERMANY:"<<std::endl;
-    germanyListings();}else if (selectCountry == 4){ std::cout<<"USA:"<<std::endl;
-    usaListings();}else if (selectCountry == 5){ std::cout<<"AUSTRALIA:"<<std::endl;
-    australiaListings();}else if (selectCountry == 6){ std::cout<<"BRAZIL:"<<std::endl;
-    brazilListings();}else if (selectCountry == 7){ std::cout<<"UAE:"<<std::endl;
-    uaeListings();}
-    wrongCountrySelection();
-
-    */
-
+    std::cout<<"..."<<std::endl;
+    sleep(2);
     std::cout<<"Select the currency you would like to use for your transactions."<<std::endl;
     std::cout<<"The conversion rates are as shown:"<<std::endl;
+    std::cout<<"(Conversion rates are in Kenyan Shillings)"<<std::endl;
     std::string conversionRates [8][8] = {
     {
       "   ","KSH       "," CHY   "," EUR   ","USD    "," AUD   ","BRL    ","AED"
@@ -93,18 +84,33 @@ int main()
     std::cout<<"5. Australian Dollar (AUD)"<<std::endl;
     std::cout<<"6. Brazilian Real (BRL)"<<std::endl;
     std::cout<<"7. Emirati Dinar (AED)"<<std::endl;
-
-   /*
-    std::cout<<"Your balance is 0.00. \n Press 1 to make a deposit:"<<std::endl;
+    std::cin>>currencySelection;
+    while (currencySelection > 7 || currencySelection == 0)
+    {
+        std::cout<<"Invalid option. Please try again!!"<<std::endl;
+        std::cout<<"1. Kenyan Shilling (KSH)"<<std::endl;
+        std::cout<<"2. Chinese Yuan (CHY)"<<std::endl;
+        std::cout<<"3. Euro (EUR)"<<std::endl;
+        std::cout<<"4. American Dollar (USD)"<<std::endl;
+        std::cout<<"5. Australian Dollar (AUD)"<<std::endl;
+        std::cout<<"6. Brazilian Real (BRL)"<<std::endl;
+        std::cout<<"7. Emirati Dinar (AED)"<<std::endl;
+        std::cin>>currencySelection;
+    }
+    std::cout<<"..."<<std::endl;
+    sleep(2);
+    std::cout<<"Your balance is 0.00 \n Press 1 to make a deposit:"<<std::endl;
     int depositOption;
     std::cin>>depositOption;
+    sleep (1.5);
     while (depositOption != 1)
     {
         std::cout<<"Invalid option. Press 1 to make a deposit."<<std::endl;
         std::cin>>depositOption;
+        sleep (1.5);
     }
     std::cout<<"Enter deposit amount: "<<std::flush;
-    unsigned int depositAmount;
+    double depositAmount;
     std::cin>>depositAmount;
     while (depositAmount <= 1)
     {
@@ -112,7 +118,36 @@ int main()
         std::cout<<"Enter deposit amount: "<<std::flush;
         std::cin>>depositAmount;
     }
-    */
+    std::cout<<"Processing..."<<std::endl;
+    sleep(5);
+    double transactionFee;
+    transactionFee = RATE * depositAmount; //0.05% of the deposit fee
+    depositAmount -= transactionFee;
+    std::cout<<"Transaction fee: "<<transactionFee<<std::endl;
+    sleep(1.5);
+    std::cout<<"Available trading balance: "<<std::setprecision(3)<<std::fixed<<depositAmount<<std::endl;
+    std::cout<<"..."<<std::endl;
+    sleep(5);
+    std::cout<<"Select a country to trade on its listings."<<std::endl;
+    std::cout<<"1. Kenya"<<std::endl;
+    std::cout<<"2. China"<<std::endl;
+    std::cout<<"3. Germany"<<std::endl;
+    std::cout<<"4. USA"<<std::endl;
+    std::cout<<"5. Australia"<<std::endl;
+    std::cout<<"6. Brazil"<<std::endl;
+    std::cout<<"7. UAE"<<std::endl;
+    std::cin>>selectCountry;
+    sleep (3);
+    if (selectCountry == 1){ std::cout<<"KENYA:"<<std::endl;
+        kenyaListings();}else if (selectCountry == 2){ std::cout<<"CHINA:"<<std::endl;
+    chinaListings();}else if (selectCountry == 3){ std::cout<<"GERMANY:"<<std::endl;
+    germanyListings();}else if (selectCountry == 4){ std::cout<<"USA:"<<std::endl;
+    usaListings();}else if (selectCountry == 5){ std::cout<<"AUSTRALIA:"<<std::endl;
+    australiaListings();}else if (selectCountry == 6){ std::cout<<"BRAZIL:"<<std::endl;
+    brazilListings();}else if (selectCountry == 7){ std::cout<<"UAE:"<<std::endl;
+    uaeListings();}
+    wrongCountrySelection();
+
 }
 void userDetails()
 {
@@ -132,9 +167,16 @@ void userDetails()
     std::cin>>passwordConfirm;
     while (password != passwordConfirm)
     {
+       std::cout<<"..."<<std::endl;
+       sleep(2);
        std::cout<<"Passwords do not match!! Try again"<<std::endl;
+       std::string aesterick{'*'};
+       std::cout<<std::setfill('*');
+       std::cout<<std::setw(10)<<std::left<<aesterick<<std::endl;
        std::cin>>passwordConfirm;
     }
+    std::cout<<"..."<<std::endl;
+    sleep(2);
     std::cout<<std::endl<<"  Password modified successfully!"<<std::endl<<std::endl;
 
 }
@@ -159,6 +201,7 @@ void kenyaListings ()
         }
         std::cout<<std::endl;
     }
+    sleep(5);
 }
 void chinaListings ()
 {
