@@ -206,7 +206,7 @@ void userDetails()
 void kenyaListings ()
 {
     std::string listings[11][4] = {
-        {"ID    ", "PLCs                                   "," BP  ","SP" },
+        {"ID    ", "PLCs                                   "," CP  ","PP" },
         {"3069  ", "Safaricom PLC                         ","44.29", "27.55", },
         {"3521  ", "Kakuzi PLC                            ","25.17", "10.88", },
         {"3630  ", "Kenya Reinsurrance Corporation        ","12.67", "18.23", },
@@ -229,7 +229,7 @@ void kenyaListings ()
 void chinaListings ()
 {
         std::string listings[11][4] = {
-        {"ID    ", "PLCs            "," BP    ","SP" },
+        {"ID    ", "PLCs            "," CP    ","PP" },
         {"7632  ", "Alibaba         ","44.29", "27.55", },
         {"7844  ", "Tencent         ","25.17", "10.88", },
         {"7152  ", "Vipshop         ","12.67", "18.23", },
@@ -251,7 +251,7 @@ void chinaListings ()
 void germanyListings ()
 {
         std::string listings[11][4] = {
-        {"ID    ", "PLCs                          ","  BP    ","SP" },
+        {"ID    ", "PLCs                          ","  CP    ","PP" },
         {"1056  ", "Deutsche Bank AG               ","44.29", "27.55", },
         {"1524  ", "Continental AG                 ","25.17", "10.88", },
         {"1975  ", "Munich Re Group                ","12.67", "18.23", },
@@ -273,7 +273,7 @@ void germanyListings ()
 void usaListings ()
 {
         std::string listings[11][4] = {
-        {"ID    ", "PLCs               ","  BP    ","SP" },
+        {"ID    ", "PLCs               ","  CP    ","PP" },
         {"4987  ", "Tesla INC           ","44.29", "27.55", },
         {"4732  ", "Amazon              ","25.17", "10.88", },
         {"4152  ", "Microsoft           ","12.67", "18.23", },
@@ -295,7 +295,7 @@ void usaListings ()
 void australiaListings ()
 {
         std::string listings[11][4] = {
-        {"ID    ", "PLCs                                 "," BP    ","SP" },
+        {"ID    ", "PLCs                                 "," CP    ","PP" },
         {"9198  ", "Australia and NZ Banking Group LTD   ","44.29", "27.55", },
         {"9461  ", "BHP Group LTD                        ","25.17", "10.88", },
         {"9720  ", "Commonwealth Bank of Australia       ","12.67", "18.23", },
@@ -317,7 +317,7 @@ void australiaListings ()
 void brazilListings ()
 {
         std::string listings[11][4] = {
-        {"ID    ", "PLCs                                     "," BP    ","SP" },
+        {"ID    ", "PLCs                                     "," CP    ","PP" },
         {"6618  ", "Vale SA                                  ","44.29", "27.55", },
         {"6789  ", "Ambeu SA                                 ","25.17", "10.88", },
         {"6159  ", "XP Inc                                   ","12.67", "18.23", },
@@ -339,7 +339,7 @@ void brazilListings ()
 void uaeListings ()
 {
         std::string listings[11][4] = {
-        {"ID    ", "PLCs                        "," BP    ","SP" },
+        {"ID    ", "PLCs                        "," CP    ","PP" },
         {"0159  ", "Emirates Refreshme          ","44.29", "27.55", },
         {"0486  ", "Dubai Nail Insurance        ","25.17", "10.88", },
         {"0681  ", "Commercial Bank of Dubai    ","12.67", "18.23", },
