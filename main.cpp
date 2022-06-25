@@ -20,11 +20,16 @@ void australiaListings ();
 void brazilListings ();
 void uaeListings ();
 void wrongCountrySelection();
+void stockSelection (int stockId);
+
+
+
+const double RATE = (0.05 / 100); //transactional rates of all transactions
+const double TAX = (16 / 100); //standard tax rate
 
 
 int selectCountry; //user to choose a country to trade listings of
-const double RATE = (0.05 / 100); //transactional rates of all transactions
-const double TAX = (16 / 100); //standard tax rate
+int stockId;
 
 
 int main()
@@ -77,7 +82,7 @@ int main()
         }
         std::cout<<std::endl;
     }
-    */
+
     int currencySelection;
     std::cout<<"1. Kenyan Shilling (KSH)"<<std::endl;
     std::cout<<"2. Chinese Yuan (CHY)"<<std::endl;
@@ -139,7 +144,7 @@ int main()
     std::cout<<"Available trading balance: "<<depositAmount<<" BRL"<<std::endl;}
     else {std::cout<<"Transaction fee: "<<transactionFee<<" AED"<<std::endl;sleep(2);
     std::cout<<"Available trading balance: "<<depositAmount<<" AED"<<std::endl;}
-    /*
+
     std::cout<<"..."<<std::endl;
     sleep(5);
     std::cout<<"Select a country to trade on its listings."<<std::endl;
@@ -162,6 +167,9 @@ int main()
     uaeListings();}
     wrongCountrySelection();
     */
+
+    std::cout<<"Enter stock ID: "<<std::flush;std::cin>>stockId;std::cout<<std::endl;
+    stockSelection (stockId);
 
 }
 void userDetails()
@@ -199,16 +207,16 @@ void kenyaListings ()
 {
     std::string listings[11][4] = {
         {"ID    ", "PLCs                                   "," BP  ","SP" },
-        {"1056  ", "Safaricom PLC                         ","44.29", "27.55", },
-        {"2241  ", "Kakuzi PLC                            ","25.17", "10.88", },
-        {"3790  ", "Kenya Reinsurrance Corporation        ","12.67", "18.23", },
-        {"4599  ", "Kenya Commercial Bank Group PLC       ","15.22", "12.51", },
-        {"5120  ", "Unilever Kenya PLC                    ","16.11", "26.03", },
-        {"6264  ", "Bamburi Cement PLC                    ","48.02", "55.92", },
-        {"7430  ", "KenGen                                ","64.21", "88.71", },
-        {"8791  ", "Jubilee Holdings PLC                  ","12.56", "12.62", },
-        {"9198  ", "East Africa Breweries Ltd             ","15.01", "51.69", },
-        {"1055  ", "Equity Bank PLC                       ","11.25", "27.43", }
+        {"3069  ", "Safaricom PLC                         ","44.29", "27.55", },
+        {"3521  ", "Kakuzi PLC                            ","25.17", "10.88", },
+        {"3630  ", "Kenya Reinsurrance Corporation        ","12.67", "18.23", },
+        {"3411  ", "Kenya Commercial Bank Group PLC       ","15.22", "12.51", },
+        {"3318  ", "Unilever Kenya PLC                    ","16.11", "26.03", },
+        {"3109  ", "Bamburi Cement PLC                    ","48.02", "55.92", },
+        {"3008  ", "KenGen                                ","64.21", "88.71", },
+        {"3756  ", "Jubilee Holdings PLC                  ","12.56", "12.62", },
+        {"3297  ", "East Africa Breweries Ltd             ","15.01", "51.69", },
+        {"3650  ", "Equity Bank PLC                       ","11.25", "27.43", }
     };
     for (int i = 0; i < 11; i++){
         for (int k = 0; k < 4; k++){
@@ -222,16 +230,16 @@ void chinaListings ()
 {
         std::string listings[11][4] = {
         {"ID    ", "PLCs            "," BP    ","SP" },
-        {"1056  ", "Alibaba         ","44.29", "27.55", },
-        {"2241  ", "Tencent         ","25.17", "10.88", },
-        {"3790  ", "Vipshop         ","12.67", "18.23", },
-        {"4599  ", "Dada Nexus      ","15.22", "12.51", },
-        {"5120  ", "JD.com          ","16.11", "26.03", },
-        {"6264  ", "Joy             ","48.02", "55.92", },
-        {"7430  ", "XPeng Motors    ","64.21", "88.71", },
-        {"8791  ", "Gaotu Techedu   ","12.56", "12.62", },
-        {"9198  ", "Daqo New Energy ","15.01", "51.69", },
-        {"1055  ", "Li Auto         ","11.25", "27.43", }
+        {"7632  ", "Alibaba         ","44.29", "27.55", },
+        {"7844  ", "Tencent         ","25.17", "10.88", },
+        {"7152  ", "Vipshop         ","12.67", "18.23", },
+        {"7350  ", "Dada Nexus      ","15.22", "12.51", },
+        {"7756  ", "JD.com          ","16.11", "26.03", },
+        {"7925  ", "Joy             ","48.02", "55.92", },
+        {"7015  ", "XPeng Motors    ","64.21", "88.71", },
+        {"7445  ", "Gaotu Techedu   ","12.56", "12.62", },
+        {"7684  ", "Daqo New Energy ","15.01", "51.69", },
+        {"7973  ", "Li Auto         ","11.25", "27.43", }
     };
     for (int i = 0; i < 11; i++){
         for (int k = 0; k < 4; k++){
@@ -245,15 +253,15 @@ void germanyListings ()
         std::string listings[11][4] = {
         {"ID    ", "PLCs                          ","  BP    ","SP" },
         {"1056  ", "Deutsche Bank AG               ","44.29", "27.55", },
-        {"2241  ", "Continental AG                 ","25.17", "10.88", },
-        {"3790  ", "Munich Re Group                ","12.67", "18.23", },
-        {"4599  ", "Adidas AG                      ","15.22", "12.51", },
-        {"5120  ", "Siemens AG                     ","16.11", "26.03", },
-        {"6264  ", "SAP SE                         ","48.02", "55.92", },
-        {"7430  ", "Volkswagen AG                  ","64.21", "88.71", },
-        {"8791  ", "Porsche Automobile Holding SE  ","12.56", "12.62", },
-        {"9198  ", "Puma SE                        ","15.01", "51.69", },
-        {"1055  ", "Kion Group AG                  ","11.25", "27.43", }
+        {"1524  ", "Continental AG                 ","25.17", "10.88", },
+        {"1975  ", "Munich Re Group                ","12.67", "18.23", },
+        {"1167  ", "Adidas AG                      ","15.22", "12.51", },
+        {"1733  ", "Siemens AG                     ","16.11", "26.03", },
+        {"1462  ", "SAP SE                         ","48.02", "55.92", },
+        {"1820  ", "Volkswagen AG                  ","64.21", "88.71", },
+        {"1110  ", "Porsche Automobile Holding SE  ","12.56", "12.62", },
+        {"1376  ", "Puma SE                        ","15.01", "51.69", },
+        {"1896  ", "Kion Group AG                  ","11.25", "27.43", }
     };
     for (int i = 0; i < 11; i++){
         for (int k = 0; k < 4; k++){
@@ -266,16 +274,16 @@ void usaListings ()
 {
         std::string listings[11][4] = {
         {"ID    ", "PLCs               ","  BP    ","SP" },
-        {"1056  ", "Tesla INC           ","44.29", "27.55", },
-        {"2241  ", "Amazon              ","25.17", "10.88", },
-        {"3790  ", "Microsoft           ","12.67", "18.23", },
-        {"4599  ", "Exxon Mobil Corp    ","15.22", "12.51", },
-        {"5120  ", "Meta INC            ","16.11", "26.03", },
-        {"6264  ", "Apple INC           ","48.02", "55.92", },
-        {"7430  ", "Berkshire Hathaway  ","64.21", "88.71", },
-        {"8791  ", "JPMorgan Chase      ","12.56", "12.62", },
-        {"9198  ", "Johnson & Johnson   ","15.01", "51.69", },
-        {"1055  ", "Coca-cola company   ","11.25", "27.43", }
+        {"4987  ", "Tesla INC           ","44.29", "27.55", },
+        {"4732  ", "Amazon              ","25.17", "10.88", },
+        {"4152  ", "Microsoft           ","12.67", "18.23", },
+        {"4490  ", "Exxon Mobil Corp    ","15.22", "12.51", },
+        {"4318  ", "Meta INC            ","16.11", "26.03", },
+        {"4851  ", "Apple INC           ","48.02", "55.92", },
+        {"4816  ", "Berkshire Hathaway  ","64.21", "88.71", },
+        {"4518  ", "JPMorgan Chase      ","12.56", "12.62", },
+        {"4400  ", "Johnson & Johnson   ","15.01", "51.69", },
+        {"4258  ", "Coca-cola company   ","11.25", "27.43", }
     };
     for (int i = 0; i < 11; i++){
         for (int k = 0; k < 4; k++){
@@ -288,16 +296,16 @@ void australiaListings ()
 {
         std::string listings[11][4] = {
         {"ID    ", "PLCs                                 "," BP    ","SP" },
-        {"1056  ", "Australia and NZ Banking Group LTD   ","44.29", "27.55", },
-        {"2241  ", "BHP Group LTD                        ","25.17", "10.88", },
-        {"3790  ", "Commonwealth Bank of Australia       ","12.67", "18.23", },
-        {"4599  ", "CSL Limited                          ","15.22", "12.51", },
-        {"5120  ", "Fortescue Metals Group LTD           ","16.11", "26.03", },
-        {"6264  ", "Macquarie Group LTD                  ","48.02", "55.92", },
-        {"7430  ", "National Australia Bank Limited      ","64.21", "88.71", },
-        {"8791  ", "Westpac Banking Corporation          ","12.56", "12.62", },
-        {"9198  ", "Woolworths Group Limited             ","15.01", "51.69", },
-        {"1055  ", "Westfarmers Limited                  ","11.25", "27.43", }
+        {"9198  ", "Australia and NZ Banking Group LTD   ","44.29", "27.55", },
+        {"9461  ", "BHP Group LTD                        ","25.17", "10.88", },
+        {"9720  ", "Commonwealth Bank of Australia       ","12.67", "18.23", },
+        {"9814  ", "CSL Limited                          ","15.22", "12.51", },
+        {"9354  ", "Fortescue Metals Group LTD           ","16.11", "26.03", },
+        {"9642  ", "Macquarie Group LTD                  ","48.02", "55.92", },
+        {"9815  ", "National Australia Bank Limited      ","64.21", "88.71", },
+        {"9956  ", "Westpac Banking Corporation          ","12.56", "12.62", },
+        {"9108  ", "Woolworths Group Limited             ","15.01", "51.69", },
+        {"9740  ", "Westfarmers Limited                  ","11.25", "27.43", }
     };
     for (int i = 0; i < 11; i++){
         for (int k = 0; k < 4; k++){
@@ -310,16 +318,16 @@ void brazilListings ()
 {
         std::string listings[11][4] = {
         {"ID    ", "PLCs                                     "," BP    ","SP" },
-        {"1056  ", "Vale SA                                  ","44.29", "27.55", },
-        {"2241  ", "Ambeu SA                                 ","25.17", "10.88", },
-        {"3790  ", "XP Inc                                   ","12.67", "18.23", },
-        {"4599  ", "Banco do Brasil SA                       ","15.22", "12.51", },
-        {"5120  ", "JBS SA                                   ","16.11", "26.03", },
-        {"6264  ", "Klabin SA                                ","48.02", "55.92", },
-        {"7430  ", "Suzano SA                                ","64.21", "88.71", },
-        {"8791  ", "Gerdau SA                                ","12.56", "12.62", },
-        {"9198  ", "Cosan SA                                 ","15.01", "51.69", },
-        {"1055  ", "Notre Dame Intermedica Participacoes     ","11.25", "27.43", }
+        {"6618  ", "Vale SA                                  ","44.29", "27.55", },
+        {"6789  ", "Ambeu SA                                 ","25.17", "10.88", },
+        {"6159  ", "XP Inc                                   ","12.67", "18.23", },
+        {"6087  ", "Banco do Brasil SA                       ","15.22", "12.51", },
+        {"6249  ", "JBS SA                                   ","16.11", "26.03", },
+        {"6936  ", "Klabin SA                                ","48.02", "55.92", },
+        {"6758  ", "Suzano SA                                ","64.21", "88.71", },
+        {"6139  ", "Gerdau SA                                ","12.56", "12.62", },
+        {"6520  ", "Cosan SA                                 ","15.01", "51.69", },
+        {"6060  ", "Notre Dame Intermedica Participacoes     ","11.25", "27.43", }
     };
     for (int i = 0; i < 11; i++){
         for (int k = 0; k < 4; k++){
@@ -332,16 +340,16 @@ void uaeListings ()
 {
         std::string listings[11][4] = {
         {"ID    ", "PLCs                        "," BP    ","SP" },
-        {"1056  ", "Emirates Refreshme          ","44.29", "27.55", },
-        {"2241  ", "Dubai Nail Insurance        ","25.17", "10.88", },
-        {"3790  ", "Commercial Bank of Dubai    ","12.67", "18.23", },
-        {"4599  ", "Gulf Navigation HO          ","15.22", "12.51", },
-        {"5120  ", "Dubai Refreshments          ","16.11", "26.03", },
-        {"6264  ", "Al Salam Bk-Sudan           ","48.02", "55.92", },
-        {"7430  ", "Amanat Holdings             ","64.21", "88.71", },
-        {"8791  ", "BHM Capital                 ","12.56", "12.62", },
-        {"9198  ", "Emirates NBD Bank           ","15.01", "51.69", },
-        {"1055  ", "National Cement             ","11.25", "27.43", }
+        {"0159  ", "Emirates Refreshme          ","44.29", "27.55", },
+        {"0486  ", "Dubai Nail Insurance        ","25.17", "10.88", },
+        {"0681  ", "Commercial Bank of Dubai    ","12.67", "18.23", },
+        {"0053  ", "Gulf Navigation HO          ","15.22", "12.51", },
+        {"0957  ", "Dubai Refreshments          ","16.11", "26.03", },
+        {"0722  ", "Al Salam Bk-Sudan           ","48.02", "55.92", },
+        {"0115  ", "Amanat Holdings             ","64.21", "88.71", },
+        {"0358  ", "BHM Capital                 ","12.56", "12.62", },
+        {"0499  ", "Emirates NBD Bank           ","15.01", "51.69", },
+        {"0096  ", "National Cement             ","11.25", "27.43", }
     };
     for (int i = 0; i < 11; i++){
         for (int k = 0; k < 4; k++){
@@ -373,4 +381,209 @@ void wrongCountrySelection()
     uaeListings();}
     }
 }
+void stockSelection (int stockId)
+{
+    switch (stockId)
+    {
+    case 3069:
+        {
 
+        std::string stockSelected [2][4] = {
+        {
+            "       ","       CP","   PP","    %"
+        },
+        {
+            "Safaricom PLC","44.29","44.16","0.294"
+        }
+        };
+        for (int i = 0; i < 2; i++){
+            for (int k = 0; k < 4; k++)
+            {
+                std::cout<<stockSelected [i][k]<<" "<<std::flush;
+            }
+            std::cout<<std::endl;
+        }
+        break;
+    }
+    case 3079:
+        {
+
+        std::string stockSelected [2][4] = {
+        {
+            "       ","       CP","   PP","    %"
+        },
+        {
+            "Safaricom PLC","44.29","44.16","0.294"
+        }
+        };
+        for (int i = 0; i < 2; i++){
+            for (int k = 0; k < 4; k++)
+            {
+                std::cout<<stockSelected [i][k]<<" "<<std::flush;
+            }
+            std::cout<<std::endl;
+        }
+        break;
+    }
+    case 3089:
+        {
+
+        std::string stockSelected [2][4] = {
+        {
+            "       ","       CP","   PP","    %"
+        },
+        {
+            "Safaricom PLC","44.29","44.16","0.294"
+        }
+        };
+        for (int i = 0; i < 2; i++){
+            for (int k = 0; k < 4; k++)
+            {
+                std::cout<<stockSelected [i][k]<<" "<<std::flush;
+            }
+            std::cout<<std::endl;
+        }
+        break;
+    }
+    case 3099:
+        {
+
+        std::string stockSelected [2][4] = {
+        {
+            "       ","       CP","   PP","    %"
+        },
+        {
+            "Safaricom PLC","44.29","44.16","0.294"
+        }
+        };
+        for (int i = 0; i < 2; i++){
+            for (int k = 0; k < 4; k++)
+            {
+                std::cout<<stockSelected [i][k]<<" "<<std::flush;
+            }
+            std::cout<<std::endl;
+        }
+        break;
+    }
+    case 3009:
+        {
+
+        std::string stockSelected [2][4] = {
+        {
+            "       ","       CP","   PP","    %"
+        },
+        {
+            "Safaricom PLC","44.29","44.16","0.294"
+        }
+        };
+        for (int i = 0; i < 2; i++){
+            for (int k = 0; k < 4; k++)
+            {
+                std::cout<<stockSelected [i][k]<<" "<<std::flush;
+            }
+            std::cout<<std::endl;
+        }
+        break;
+    }
+    case 3019:
+        {
+
+        std::string stockSelected [2][4] = {
+        {
+            "       ","       CP","   PP","    %"
+        },
+        {
+            "Safaricom PLC","44.29","44.16","0.294"
+        }
+        };
+        for (int i = 0; i < 2; i++){
+            for (int k = 0; k < 4; k++)
+            {
+                std::cout<<stockSelected [i][k]<<" "<<std::flush;
+            }
+            std::cout<<std::endl;
+        }
+        break;
+    }
+    case 3029:
+        {
+
+        std::string stockSelected [2][4] = {
+        {
+            "       ","       CP","   PP","    %"
+        },
+        {
+            "Safaricom PLC","44.29","44.16","0.294"
+        }
+        };
+        for (int i = 0; i < 2; i++){
+            for (int k = 0; k < 4; k++)
+            {
+                std::cout<<stockSelected [i][k]<<" "<<std::flush;
+            }
+            std::cout<<std::endl;
+        }
+        break;
+    }
+    case 3039:
+        {
+
+        std::string stockSelected [2][4] = {
+        {
+            "       ","       CP","   PP","    %"
+        },
+        {
+            "Safaricom PLC","44.29","44.16","0.294"
+        }
+        };
+        for (int i = 0; i < 2; i++){
+            for (int k = 0; k < 4; k++)
+            {
+                std::cout<<stockSelected [i][k]<<" "<<std::flush;
+            }
+            std::cout<<std::endl;
+        }
+        break;
+    }
+    case 3049:
+        {
+
+        std::string stockSelected [2][4] = {
+        {
+            "       ","       CP","   PP","    %"
+        },
+        {
+            "Safaricom PLC","44.29","44.16","0.294"
+        }
+        };
+        for (int i = 0; i < 2; i++){
+            for (int k = 0; k < 4; k++)
+            {
+                std::cout<<stockSelected [i][k]<<" "<<std::flush;
+            }
+            std::cout<<std::endl;
+        }
+        break;
+    }
+    case 3059:
+        {
+
+        std::string stockSelected [2][4] = {
+        {
+            "       ","       CP","   PP","    %"
+        },
+        {
+            "Safaricom PLC","44.29","44.16","0.294"
+        }
+        };
+        for (int i = 0; i < 2; i++){
+            for (int k = 0; k < 4; k++)
+            {
+                std::cout<<stockSelected [i][k]<<" "<<std::flush;
+            }
+            std::cout<<std::endl;
+        }
+        break;
+    }
+    }
+}
