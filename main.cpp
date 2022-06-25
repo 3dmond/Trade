@@ -29,6 +29,7 @@ const double TAX = (16 / 100); //standard tax rate
 
 int main()
 {
+    /*
     userDetails();   //user details for log in
     std::cout<<"Please select an option below: "<<std::flush<<std::endl<<"1. Trade stocks."<<std::flush<<std::endl<<"2. Trade with leverage."<<std::flush<<std::endl;
     int selectOption; //user to choose between either option one or two
@@ -76,6 +77,7 @@ int main()
         }
         std::cout<<std::endl;
     }
+    */
     int currencySelection;
     std::cout<<"1. Kenyan Shilling (KSH)"<<std::endl;
     std::cout<<"2. Chinese Yuan (CHY)"<<std::endl;
@@ -123,9 +125,21 @@ int main()
     double transactionFee;
     transactionFee = RATE * depositAmount; //0.05% of the deposit fee
     depositAmount -= transactionFee;
-    std::cout<<"Transaction fee: "<<transactionFee<<std::endl;
-    sleep(1.5);
-    std::cout<<"Available trading balance: "<<std::setprecision(3)<<std::fixed<<depositAmount<<std::endl;
+    if (currencySelection == 1){std::cout<<"Transaction fee: KSH "<<transactionFee<<std::endl;sleep(1.5);
+    std::cout<<"Available trading balance: KSH "<<depositAmount<<std::endl;}
+    else if (currencySelection == 2){std::cout<<"Transaction fee: "<<transactionFee<<" CHY"<<std::endl;sleep(1.5);
+    std::cout<<"Available trading balance: "<<depositAmount<<" CHY"<<std::endl;}
+    else if (currencySelection == 3){std::cout<<"Transaction fee: "<<transactionFee<<" EUR"<<std::endl;sleep(1.5);
+    std::cout<<"Available trading balance: "<<depositAmount<<" EUR"<<std::endl;}
+    else if (currencySelection == 4){std::cout<<"Transaction fee: $ "<<transactionFee<<std::endl;sleep(1.5);
+    std::cout<<"Available trading balance: $ "<<depositAmount<<std::endl;}
+    else if (currencySelection == 5){std::cout<<"Transaction fee: "<<transactionFee<<" AUD"<<std::endl;sleep(1.5);
+    std::cout<<"Available trading balance: "<<depositAmount<<" AUD"<<std::endl;}
+    else if (currencySelection == 6){std::cout<<"Transaction fee: "<<transactionFee<<" BRL"<<std::endl;sleep(1.5);
+    std::cout<<"Available trading balance: "<<depositAmount<<" BRL"<<std::endl;}
+    else {std::cout<<"Transaction fee: "<<transactionFee<<" AED"<<std::endl;sleep(2);
+    std::cout<<"Available trading balance: "<<depositAmount<<" AED"<<std::endl;}
+    /*
     std::cout<<"..."<<std::endl;
     sleep(5);
     std::cout<<"Select a country to trade on its listings."<<std::endl;
@@ -147,6 +161,7 @@ int main()
     brazilListings();}else if (selectCountry == 7){ std::cout<<"UAE:"<<std::endl;
     uaeListings();}
     wrongCountrySelection();
+    */
 
 }
 void userDetails()
