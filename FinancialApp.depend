@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1656194348 source:c:\users\edmond\documents\code blocks\financialapp\main.cpp
+	<iostream>
+	<unistd.h>
+	<iostream>
+	"user_details.h"
+	"transactions.h"
+	"Listings.h"
+
+1656167911 c:\users\edmond\documents\code blocks\financialapp\headers.h
+
+1656194278 source:c:\users\edmond\documents\code blocks\financialapp\src\listings.cpp
+	<Windows.h>
+	<unistd.h>
+	<iostream>
+	"listings.h"
+
+1656194683 c:\users\edmond\documents\code blocks\financialapp\include\listings.h
+
+1656192070 c:\users\edmond\documents\code blocks\financialapp\include\user_details.h
+
+1656192070 source:c:\users\edmond\documents\code blocks\financialapp\src\user_details.cpp
+	"user_details.h"
+	<Windows.h>
+	<unistd.h>
+	<iostream>
+	<iomanip>
+	<string>
+
+1656193170 c:\users\edmond\documents\code blocks\financialapp\include\transactions.h
+
+1656194683 source:c:\users\edmond\documents\code blocks\financialapp\src\transactions.cpp
+	<Windows.h>
+	<unistd.h>
+	<iostream>
+	"transactions.h"
+
