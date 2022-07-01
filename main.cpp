@@ -36,7 +36,7 @@ int main()
     double depositAmount;
     std::cin>>depositAmount;
     Transactions deposit;
-    deposit.ifDepositIsBelowMinimum(depositAmount);
+    deposit.ifDepositIsBelowMinimum(&depositAmount);
         std::cout<<"Processing..."<<std::endl;
     sleep(5);
     double transactionFee; //deducted from the initial deposit fee
